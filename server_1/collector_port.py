@@ -26,14 +26,10 @@ def receive_and_save_data(client_socket):
     # Find the index of '[' to determine the end of the file name
     index_of_bracket = received_data.find(b'[')
     if index_of_bracket != -1:
-        # Extract the file name
         file_name = received_data[:index_of_bracket].decode('utf-8').strip()
         print(f'File name: {file_name}')
 
-        # Form the path for saving the file
         json_output_path1 = os.path.join('server_1/result', file_name)
-
-        # Create the folder if it does not exist
         os.makedirs(os.path.dirname(json_output_path1), exist_ok=True)
 
         # Save the remaining data after '[' to the file
