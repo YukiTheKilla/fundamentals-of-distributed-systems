@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JSON Files</title>
+</head>
+<body>
+  <h1>Files</h1>
+  <p>List of files in the folder:</p>
+  <form action="/send_json_request" method="post">
+    <label for="file_select">Select a file:</label>
+    <select id="file_select" name="selected_file">
+      {% for file in json_files %}
+        <option value="{{ file }}">{{ file }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <button type="submit">Send Request</button>
+  </form>
+</body>
+</html>
